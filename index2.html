@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Win 10 Lakhs Rupees!!! 💸💰🤑</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive;
+            background-color: #ff00ff;
+            color: yellow;
+            cursor: url('/api/cursor.png') 50 50, auto;
+            overflow-x: hidden;
+            transition: background-color 0.3s;
+        }
+
+        #welcome-screen {
+            text-align: center;
+            margin-top: 50px;
+            animation: bounce 1s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        #game-container {
+            display: none;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #00ff00;
+            border: 10px dashed red;
+            position: relative;
+            box-shadow: 0 0 30px rgba(255,255,0,0.8);
+        }
+
+        .blink {
+            animation: blink-animation 0.5s steps(5, start) infinite;
+        }
+
+        @keyframes blink-animation {
+            to {
+                visibility: hidden;
+            }
+        }
+
+        .rainbow-text {
+    display: inline-block; 
+    background-image: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: rainbow 3s linear infinite;
+}
+
+
+@keyframes rainbow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+        #rules {
+            font-size: 24px;
+            text-align: center;
+            animation: shake 0.5s infinite;
+            transform-origin: center;
+            text-shadow: 2px 2px 5px #ff0000;
+        }
+
+        @keyframes shake {
+            0% { transform: translate(1px, 1px) rotate(0deg); }
+            10% { transform: translate(-1px, -2px) rotate(-1deg); }
+            20% { transform: translate(-3px, 0px) rotate(1deg); }
+            30% { transform: translate(3px, 2px) rotate(0deg); }
+            40% { transform: translate(1px, -1px) rotate(1deg); }
+            50% { transform: translate(-1px, 2px) rotate(-1deg); }
+            60% { transform: translate(-3px, 1px) rotate(0deg); }
+            70% { transform: translate(3px, 1px) rotate(-1deg); }
+            80% { transform: translate(-1px, -1px) rotate(1deg); }
+            90% { transform: translate(1px, 2px) rotate(0deg); }
+            100% { transform: translate(1px, -2px) rotate(-1deg); }
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 3px dotted blue;
+            font-family: 'Comic Sans MS', cursive;
+            font-size: 20px;
+            background-color: #ffff00;
+            transition: all 0.3s;
+        }
+
+        input:hover {
+            transform: rotate(2deg);
+            background-color: #ff99ff;
+        }
+
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover, 
+        input:-webkit-autofill:focus {
+            -webkit-text-fill-color: transparent;
+            transition: background-color 5000s ease-in-out 0s;
+        }
+
+        input:focus {
+            outline: none;
+            animation: move-input 0.2s infinite;
+            background-color: #ff9900;
+            color: blue;
+        }
+
+        @keyframes move-input {
+            0% { transform: translateX(0) rotate(0deg); }
+            25% { transform: translateX(5px) rotate(1deg); }
+            50% { transform: translateX(0) rotate(0deg); }
+            75% { transform: translateX(-5px) rotate(-1deg); }
+            100% { transform: translateX(0) rotate(0deg); }
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 24px;
+            background-color: #ff0000;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin: 20px 0;
+            font-weight: bold;
+            border-radius: 10px;
+            transition: all 0.2s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        button:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: 0.5s;
+        }
+
+        button:hover:before {
+            left: 100%;
+        }
+
+        button:hover {
+            transform: scale(1.1) rotate(3deg);
+            box-shadow: 0 0 15px yellow;
+        }
+
+        .popup {
+            position: fixed;
+            background-color: #33ff33;
+            border: 5px solid blue;
+            padding: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            z-index: 100;
+            font-size: 18px;
+            color: purple;
+            width: 300px;
+            text-align: center;
+            border-radius: 15px;
+            transform: rotate(random(-5deg, 5deg));
+        }
+
+        .popup button {
+            padding: 5px 10px;
+            margin-top: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        .moving-popup {
+            animation: move-random 4s infinite;
+        }
+
+        @keyframes move-random {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(100px, 50px) rotate(5deg); }
+            50% { transform: translate(-50px, 100px) rotate(-5deg); }
+            75% { transform: translate(200px, -50px) rotate(10deg); }
+            100% { transform: translate(0, 0) rotate(0deg); }
+        }
+
+        #cat-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 50;
+        }
+
+        .cat {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            pointer-events: none;
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        #food-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 45;
+        }
+
+        .food-item {
+            position: absolute;
+            font-size: 40px;
+            pointer-events: none;
+            animation: fall 3s linear forwards, spin 1s linear infinite;
+        }
+
+        #confetti {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 40;
+        }
+
+        .confetti-piece {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #f00;
+            opacity: 0.8;
+            animation: fall linear forwards, spin 1s linear infinite;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+
+        #rickroll-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 200;
+            display: none;
+        }
+
+        #rickroll-overlay img {
+            max-width: 80%;
+            max-height: 70%;
+            animation: pulse 1s infinite alternate;
+        }
+
+        @keyframes pulse {
+            from { transform: scale(1); }
+            to { transform: scale(1.1); }
+        }
+
+        #rickroll-overlay h1 {
+            color: white;
+            margin-top: 20px;
+            font-size: 36px;
+            text-align: center;
+            animation: blink-animation 0.5s infinite;
+        }
+
+        #mini-game {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #ffcc00;
+            border: 5px solid #ff0000;
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+            z-index: 150;
+            display: none;
+            border-radius: 20px;
+            box-shadow: 0 0 50px rgba(255, 0, 0, 0.7);
+        }
+
+        #mini-game h2 {
+            color: #ff0000;
+            margin-bottom: 20px;
+            animation: shake 0.5s infinite;
+        }
+
+        #mini-game button {
+            margin: 10px;
+            padding: 10px 20px;
+            animation: pulse 0.5s infinite alternate;
+        }
+
+        .flash {
+            animation: flash 0.2s;
+        }
+
+        @keyframes flash {
+            0%, 100% { background-color: #ff00ff; }
+            50% { background-color: white; }
+        }
+
+        #overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 99;
+            display: none;
+        }
+
+        #food-spam-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 190;
+            display: none;
+        }
+
+        .food-spam-img {
+            position: absolute;
+            z-index: 191;
+            animation: spin 2s linear infinite;
+        }
+
+        .spinning-text {
+            position: fixed;
+            color: yellow;
+            font-size: 24px;
+            z-index: 39;
+            pointer-events: none;
+            animation: spin-text 5s linear infinite;
+        }
+
+        @keyframes spin-text {
+            0% { transform: rotate(0deg) translateX(150px) rotate(0deg); }
+            100% { transform: rotate(360deg) translateX(150px) rotate(-360deg); }
+        }
+
+        .floating-emoji {
+            position: fixed;
+            font-size: 30px;
+            pointer-events: none;
+            animation: float 5s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .glitch {
+            animation: glitch 0.5s infinite;
+        }
+
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-5px, 5px); }
+            40% { transform: translate(-5px, -5px); }
+            60% { transform: translate(5px, 5px); }
+            80% { transform: translate(5px, -5px); }
+            100% { transform: translate(0); }
+        }
+
+        .scroll-text {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #ff0000;
+            color: white;
+            font-size: 20px;
+            padding: 10px 0;
+            white-space: nowrap;
+            overflow: hidden;
+            z-index: 95;
+        }
+
+        .scroll-text p {
+            animation: scroll 20s linear infinite;
+            display: inline-block;
+            padding-left: 100%;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+    </style>
+</head>
+<body>
+    <div id="welcome-screen">
+        <h1 class="blink rainbow-text">🎉💰 WIN 10 LAKHS RUPEES!!! 💰🎉</h1>
+        <h2 class="glitch">🤑 JUST FILL A SIMPLE FORM! 🤑</h2>
+        <button id="start-btn" class="rainbow-text">START NOW!!!</button>
+    </div>
+
+    <div id="game-container">
+        <h1 class="blink rainbow-text">Fill The Form & Win 10,00,000 Rupees!!! 🤑💰</h1>
+        <div id="rules" class="glitch">
+            The Rules are Simple: Just fill in your Name and College Name to win 10 Lakhs Rupees! 💸
+        </div>
+
+        <form id="lucky-form">
+            <input type="text" id="name" placeholder="Enter Your Name" autocomplete="off" data-lpignore="true">
+            <input type="text" id="college" placeholder="Enter Your College Name" autocomplete="off" data-lpignore="true">
+            <button type="submit" id="submit-btn" class="rainbow-text">SUBMIT & WIN!</button>
+        </form>
+    </div>
+
+    <div id="cat-container"></div>
+    <div id="food-container"></div>
+    <div id="confetti"></div>
+    <div id="overlay"></div>
+    <div id="food-spam-overlay"></div>
+
+    <div id="rickroll-overlay">
+        <img src="rick-astley.jpg" alt="Sike!">
+        <h1 class="rainbow-text">YOU JUST GOT RICKROLLED!</h1>
+    </div>
+
+    <div id="mini-game">
+        <h2 class="rainbow-text">Do you like Dosa?</h2>
+        <button id="yes-btn">YES</button>
+        <button id="no-btn">NO</button>
+    </div>
+
+    <div class="scroll-text">
+        <p>🔥🔥🔥 WIN 10 LAKHS RUPEES!!! NO SCAM! 100% REAL! FILL THE FORM NOW! WIN BIG! MONEY MONEY MONEY! HURRY UP! LIMITED TIME OFFER! DON'T MISS OUT! 🔥🔥🔥</p>
+    </div>
+
+    <audio id="rickroll-audio" src="song-1.mp3"></audio>
+    <audio id="random-audio" src="song-3.mp3"></audio>
+    <audio id="dosa-song-audio" src="song-4.mp3"></audio>
+
+    <script>
+        let clickCount = 0;
+        let nameAttempts = 0;
+        let collegeAttempts = 0;
+        let popupCount = 0;
+        let catInterval;
+        let foodInterval;
+        let isPopupOpen = false;
+        
+        
+        const catImages = [
+            "cat-1.jpg", 
+            "cat-2.webp", 
+            "cat-3.jpeg", 
+            "cat-4.jpeg", 
+            "cat-5.jpeg", 
+            "cat-6.jpeg", 
+            "cat-7.jpeg", 
+            "cat-8.jpeg", 
+            "cat-9.jpeg",
+            "cat-10.jpeg",
+            "cat-11.webp"
+        ];
+
+        
+        const foodImages = [
+            "image-1.jpeg", 
+            "image-2.jpeg", 
+            "image-3.jpeg",
+            "image-4.jpeg", 
+            "image-5.jpeg", 
+            "image-6.png", 
+            "image-7.png", 
+            "image-8.png", 
+            "image-9.jpeg"
+        ];
+        
+
+        const audioSources = [
+            "song-1.mp3", 
+            "song-2.mp3", 
+            "song-3.mp3", 
+            "song-5.mp3", 
+            "song-6.mp3"  
+        ];
+        
+        
+        const dosaSongUrl = "song-4.mp3"; 
+        
+        // Food emoji
+        const foodEmojis = ["🍛", "🥘", "🍲", "🥗", "🍚", "🍜"];
+        
+        // Scramble text function
+        function scrambleText(element) {
+            const originalText = element.innerText;
+            const substitutions = [
+                "🍛 Dosa rules apply here! 🍛",
+                "Just fill & WIN money so EASY!!! 🤑",
+                "Type name get rich quick scheme!!",
+                "No scam, just fill and WIN BIG!!!",
+                "Rules? What rules? Just type stuff!",
+                "Don't read this, just ENTER NAME!",
+                "College name = FREE MONEY!!!",
+                "SO EASY TO WIN 10 LAKHS WOW!!!"
+            ];
+            
+            setInterval(() => {
+                if (Math.random() > 0.7) {
+                    element.innerText = substitutions[Math.floor(Math.random() * substitutions.length)];
+                } else {
+                    element.innerText = originalText;
+                }
+            }, 2000);
+        }
+
+        // Create popup function
+        function createPopup(message, isMoving = false) {
+            const popup = document.createElement('div');
+            popup.className = 'popup';
+            if (isMoving) {
+                popup.classList.add('moving-popup');
+            }
+            
+            
+            popup.style.top = Math.random() * (window.innerHeight - 200) + 'px';
+            popup.style.left = Math.random() * (window.innerWidth - 300) + 'px';
+            
+            popup.innerHTML = `
+                <p>${message}</p>
+                <button class="close-btn">Close</button>
+            `;
+            
+            document.body.appendChild(popup);
+            
+         
+            isPopupOpen = true;
+            document.getElementById('overlay').style.display = 'block';
+            
+            
+            const closeBtn = popup.querySelector('.close-btn');
+            closeBtn.addEventListener('mouseover', (e) => {
+                if (Math.random() > 0.3) {
+                    popup.style.top = Math.random() * (window.innerHeight - 200) + 'px';
+                    popup.style.left = Math.random() * (window.innerWidth - 300) + 'px';
+                }
+            });
+            
+            closeBtn.addEventListener('click', () => {
+                popup.remove();
+                isPopupOpen = false;
+                document.getElementById('overlay').style.display = 'none';
+                
+                playRandomAudio();
+            });
+            
+            return popup;
+        }
+
+    
+        function releaseCats() {
+            const catContainer = document.getElementById('cat-container');
+            
+            catInterval = setInterval(() => {
+                const cat = document.createElement('div');
+                cat.className = 'cat';
+                cat.style.top = Math.random() * window.innerHeight + 'px';
+                cat.style.left = Math.random() * window.innerWidth + 'px';
+                
+                // Random cat image from array
+                const randomCatImg = catImages[Math.floor(Math.random() * catImages.length)];
+                cat.innerHTML = `<img src="${randomCatImg}" alt="Random Cat">`;
+                
+                catContainer.appendChild(cat);
+                
+                setTimeout(() => {
+                    cat.remove();
+                }, 3000);
+            }, 300); 
+        }
+
+        
+        function releaseFoodItems() {
+            const foodContainer = document.getElementById('food-container');
+            
+            foodInterval = setInterval(() => {
+                const food = document.createElement('div');
+                food.className = 'food-item';
+                
+              
+                food.textContent = foodEmojis[Math.floor(Math.random() * foodEmojis.length)];
+                
+                food.style.left = Math.random() * window.innerWidth + 'px';
+                food.style.top = '-50px';
+                foodContainer.appendChild(food);
+                
+                setTimeout(() => {
+                    food.remove();
+                }, 3000);
+            }, 300);
+        }
+
+        
+        function createConfetti() {
+            const confettiContainer = document.getElementById('confetti');
+            
+            for (let i = 0; i < 100; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti-piece';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+                confetti.style.animationDuration = 2 + Math.random() * 3 + 's';
+                confettiContainer.appendChild(confetti);
+                
+                setTimeout(() => {
+                    confetti.remove();
+                }, 5000);
+            }
+        }
+
+   
+        function flashScreen() {
+            document.body.classList.add('flash');
+            setTimeout(() => {
+                document.body.classList.remove('flash');
+            }, 200);
+        }
+
+       
+        function playRandomAudio() {
+            const audio = document.getElementById('random-audio');
+            
+   
+            const randomSource = audioSources[Math.floor(Math.random() * audioSources.length)];
+            audio.src = randomSource;
+            
+         
+            audio.volume = 1;
+            
+            // Play the audio (use promise and catch for better compatibility)
+            const playPromise = audio.play();
+            
+            if (playPromise !== undefined) {
+                playPromise.catch(error => {
+                    console.log("Audio play failed:", error);
+                    // Create a popup to inform user about audio
+                    createPopup("Please enable audio for full experience!", true);
+                });
+            }
+        }
+
+        
+        function spamFoodImages() {
+            const spamOverlay = document.getElementById('food-spam-overlay');
+            spamOverlay.style.display = 'block';
+            spamOverlay.innerHTML = ''; 
+            
+           
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => {
+                    const foodImg = document.createElement('div');
+                    foodImg.className = 'food-spam-img';
+                    
+                
+                    foodImg.style.top = Math.random() * window.innerHeight + 'px';
+                    foodImg.style.left = Math.random() * window.innerWidth + 'px';
+                    
+                    
+                    const size = 100 + Math.random() * 200;
+                    
+                    
+                    const randomFoodImg = foodImages[Math.floor(Math.random() * foodImages.length)];
+                    
+                    foodImg.innerHTML = `<img src="${randomFoodImg}" width="${size}" alt="South Indian Food">`;
+                    spamOverlay.appendChild(foodImg);
+                }, i * 300);
+            }
+            
+         
+            const dosaSong = document.getElementById('dosa-song-audio');
+            dosaSong.src = dosaSongUrl;
+            dosaSong.volume = 1;
+            
+            const playPromise = dosaSong.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(error => {
+                    console.log("Dosa song play failed:", error);
+                });
+            }
+            
+            
+            setTimeout(() => {
+                spamOverlay.style.display = 'none';
+            }, 10000);
+        }
+
+       
+        function resetEverything() {
+            
+            document.getElementById('name').value = "";
+            document.getElementById('college').value = "";
+            
+           
+            flashScreen();
+            
+          
+            playRandomAudio();
+            
+           
+            createPopup("Everything has been reset! Start over!", true);
+        }
+
+        
+        function showDosaGame() {
+            const miniGame = document.getElementById('mini-game');
+            miniGame.style.display = 'block';
+            
+            // Yes button behavior
+            document.getElementById('yes-btn').addEventListener('mouseenter', function() {
+                this.textContent = "I LOVE DOSA!";
+            });
+            
+            document.getElementById('yes-btn').addEventListener('mouseleave', function() {
+                this.textContent = "YES";
+            });
+            
+            document.getElementById('yes-btn').addEventListener('click', function() {
+                miniGame.style.display = 'none';
+                const dosaAudio = new Audio('song-4.mp3'); 
+                dosaAudio.play();
+                spamFoodImages(); 
+                setTimeout(() => {
+                    releaseFoodItems();
+                    createPopup("Dosa lover confirmed! 🍛", true);
+                }, 10500);
+            });
+            
+            // No button behavior
+            document.getElementById('no-btn').addEventListener('mouseenter', function() {
+                this.textContent = "I HATE DOSA!";
+            });
+            
+            document.getElementById('no-btn').addEventListener('mouseleave', function() {
+                this.textContent = "NO";
+            });
+            
+            document.getElementById('no-btn').addEventListener('click', function() {
+                miniGame.style.display = 'none';
+                const dosaAudio = new Audio('song-4.mp3'); 
+                dosaAudio.play();
+                spamFoodImages(); 
+                setTimeout(() => {
+                    releaseFoodItems(); 
+                    createPopup("DOSA HATER FOUND! 👅🤘", true);
+                }, 10500);
+            });
+
+            
+            
+         }
+
+       
+        function showNamePopups() {
+            if (isPopupOpen) return;
+            
+            const messages = [
+                "Fill in your name to win 10 Lakh rupees!",
+                "Name is something your mother gave you at birth!",
+                "C'mon, fill in your name already!",
+                "How difficult is it to type your name?",
+                "Your name... you know... the thing people call you!",
+                "Are you struggling to remember your name?",
+                "TYPE. YOUR. NAME. HERE. NOW.",
+                "This form isn't going to fill itself!",
+                "Name please? Pretty please?",
+                "I'm waiting... still waiting...",
+                "Just. Type. Your. Name.",
+                "Is this really so hard?",
+                "Your patience is being tested!",
+                "Name = 10 Lakhs. It's that simple!",
+                "Are you still there?",
+                "Hello? Anyone home?",
+                "Your name is required to proceed!",
+                "We need your name for the check!",
+                "No name = No money!",
+                "Last chance to enter your name!"
+            ];
+            
+            const message = messages[nameAttempts % messages.length];
+            const popup = createPopup(message, nameAttempts > 5);
+            
+            if (nameAttempts >= 7 && popupCount < 20) {
+                
+                for (let i = 0; i < 3; i++) {
+                    setTimeout(() => {
+                        const randomMsg = messages[Math.floor(Math.random() * messages.length)];
+                        createPopup(randomMsg, true);
+                        popupCount++;
+                        
+                        
+                        playRandomAudio();
+                    }, i * 300);
+                    spamOverlay.innerHTML = ''; 
+                }
+            }
+            
+            nameAttempts++;
+        }
+
+     
+        function showRickroll() {
+            const rickrollOverlay = document.getElementById('rickroll-overlay');
+            rickrollOverlay.style.display = 'flex';
+            
+            // Play rickroll audio
+            const audio = document.getElementById('rickroll-audio');
+            audio.src = audioSources[0]; 
+            audio.volume = 1;
+            
+            const playPromise = audio.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(error => {
+                    console.log("Rickroll audio play failed:", error);
+                    createPopup("Enable audio to get Rickrolled properly!", true);
+                });
+            }
+            
+            setTimeout(() => {
+                rickrollOverlay.style.display = 'none';
+            }, 5000);
+        }
+
+     
+        document.getElementById('start-btn').addEventListener('click', function() {
+            clickCount++;
+            
+           
+            playRandomAudio();
+            
+            if (clickCount === 1) {
+               
+                showRickroll();
+            } else {
+                // Second click - Start the game
+                document.getElementById('welcome-screen').style.display = 'none';
+                document.getElementById('game-container').style.display = 'block';
+                
+               
+                const rulesElement = document.getElementById('rules');
+                scrambleText(rulesElement);
+                
+               
+                createConfetti();
+                
+               
+                setInterval(() => {
+                    if (Math.random() > 0.8) {
+                        playRandomAudio();
+                    }
+                }, 10000);
+                
+               
+                setInterval(() => {
+                    if (Math.random() > 0.7) {
+                        flashScreen();
+                    }
+                }, 8000);
+                
+                
+                setInterval(() => {
+                    if (Math.random() > 0.9) {
+                        resetEverything();
+                    }
+                }, 20000);
+                
+               
+                setTimeout(() => {
+                    showDosaGame();
+                }, 15000);
+            }
+        });
+
+        
+        document.getElementById('name').addEventListener('focus', function() {
+            if (!isPopupOpen) {
+                showNamePopups();
+            }
+        });
+
+        document.getElementById('name').addEventListener('input', function() {
+            if (isPopupOpen) {
+                
+                this.value = "";
+                return;
+            }
+            
+           
+            if (Math.random() > 0.5) {
+                this.value = "🍛 DOSA 🍛";
+            } else if (Math.random() > 0.7) {
+                this.value = this.value.split('').reverse().join('');
+            }
+        });
+
+        document.getElementById('college').addEventListener('focus', function() {
+            if (isPopupOpen) return;
+            
+            collegeAttempts++;
+            
+            if (collegeAttempts > 3) {
+              
+                releaseCats();
+                
+               
+                const messages = [
+                    "Your college doesn't matter anyway!",
+                    "Are you really in college?",
+                    "College name for verification purposes!",
+                    "We'll send the money to your college!",
+                    "10 Lakhs will pay your college fees!"
+                ];
+                
+                for (let i = 0; i < 5; i++) {
+                    setTimeout(() => {
+                        const randomMsg = messages[Math.floor(Math.random() * messages.length)];
+                        createPopup(randomMsg, true);
+                        
+                        
+                        playRandomAudio();
+                    }, i * 200);
+                }
+            }
+        });
+
+        document.getElementById('college').addEventListener('input', function() {
+            if (isPopupOpen) {
+              
+                this.value = "";
+                return;
+            }
+            
+            if (Math.random() > 0.6) {
+                this.value += "🤣";
+            }
+        });
+
+        let submitText = "SUBMIT & WIN!";
+let alternateTexts = ["CATCH ME IF YOU CAN", "I DON'T WANT ANY MONEY"];
+let currentAltText = 0;
+
+let moveThreshold = 0.02; 
+const increaseIntervals = [60000, 120000]; 
+let stopMoving = false;
+let allowClick = false; 
+
+const submitBtn = document.getElementById('submit-btn');
+
+
+function centerButton() {
+    submitBtn.style.position = 'absolute';
+    submitBtn.style.left = (window.innerWidth - submitBtn.offsetWidth) / 2 + 'px';
+    submitBtn.style.top = (window.innerHeight - submitBtn.offsetHeight) / 2 + 'px';
+}
+
+
+submitBtn.disabled = true;
+submitBtn.style.opacity = 0.5; 
+
+
+setTimeout(() => { moveThreshold = 0.1; centerButton(); }, increaseIntervals[0]); 
+setTimeout(() => { 
+    stopMoving = true; 
+    allowClick = true;
+    submitBtn.disabled = false;
+    submitBtn.style.opacity = 1; 
+    centerButton();
+}, increaseIntervals[1]); 
+
+
+submitBtn.addEventListener('mouseover', function() {
+    if (stopMoving) return;
+
+    const buttonWidth = this.offsetWidth;
+    const buttonHeight = this.offsetHeight;
+    const maxX = window.innerWidth - buttonWidth;
+    const maxY = window.innerHeight - buttonHeight;
+
+    if (Math.random() > moveThreshold) {  
+        this.style.position = 'absolute';
+        this.style.left = Math.random() * maxX + 'px';
+        this.style.top = Math.random() * maxY + 'px';
+    }
+
+  
+    this.textContent = alternateTexts[currentAltText];
+    currentAltText = (currentAltText + 1) % alternateTexts.length;
+});
+
+
+submitBtn.addEventListener('click', function(event) {
+    if (!allowClick) {
+        event.preventDefault();
+        alert("Not yet! Try catching me later 😈");
+    }
+});
+
+
+centerButton();
+
+        
+
+        
+        document.getElementById('submit-btn').addEventListener('mouseout', function() {
+            this.textContent = submitText;
+        });
+
+      
+        document.getElementById('lucky-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            
+            playRandomAudio();
+            
+           
+            clearInterval(catInterval);
+            clearInterval(foodInterval);
+            document.getElementById('cat-container').innerHTML = '';
+            document.getElementById('food-container').innerHTML = '';
+            
+          
+            document.querySelectorAll('.popup').forEach(popup => popup.remove());
+            isPopupOpen = false;
+            document.getElementById('overlay').style.display = 'none';
+            
+         
+            const finalPopup = createPopup("Congratulations! You've almost won 10 Lakhs Rupees! Just pay a small processing fee of ₹999 to claim your prize!", false);
+            finalPopup.style.width = '400px';
+            finalPopup.style.top = '50%';
+            finalPopup.style.left = '50%';
+            finalPopup.style.transform = 'translate(-50%, -50%)';
+            finalPopup.style.zIndex = '1000';
+            
+            const closeBtn = finalPopup.querySelector('.close-btn');
+            closeBtn.textContent = "Pay Now";
+            
+            closeBtn.addEventListener('click', () => {
+                finalPopup.remove();
+                
+             
+                const veryFinalPopup = createPopup("ERROR: Payment failed. Please try again in 24 hours. Thanks you for wasting your time!", false);
+                veryFinalPopup.style.width = '400px';
+                veryFinalPopup.style.top = '50%';
+                veryFinalPopup.style.left = '50%';
+                veryFinalPopup.style.transform = 'translate(-50%, -50%)';
+                veryFinalPopup.style.zIndex = '1000';
+                
+                const finalCloseBtn = veryFinalPopup.querySelector('.close-btn');
+                finalCloseBtn.textContent = "Close";
+                
+                finalCloseBtn.addEventListener('click', () => {
+                    location.reload();
+                });
+            });
+        });
+
+     
+        setInterval(() => {
+            const nameInput = document.getElementById('name');
+            const collegeInput = document.getElementById('college');
+            
+            const randomStr = Math.random().toString(36).substring(7);
+            nameInput.setAttribute('name', 'field_' + randomStr);
+            collegeInput.setAttribute('name', 'field_' + randomStr + '_2');
+            
+           
+            if (nameInput.value && !isPopupOpen && Math.random() > 0.5) {
+                nameInput.value = "BANANA USER " + Math.floor(Math.random() * 1000);
+            }
+        }, 1000);
+
+       
+        setInterval(() => {
+            const cursors = ['default', 'wait', 'crosshair', 'text', 'move', 'help', 'pointer'];
+            document.body.style.cursor = cursors[Math.floor(Math.random() * cursors.length)];
+        }, 3000);
+
+        
+        setInterval(() => {
+            if (Math.random() > 0.7) {
+                document.body.style.animation = "shake 0.5s";
+                setTimeout(() => {
+                    document.body.style.animation = "";
+                }, 500);
+            }
+        }, 5000);
+
+        
+        setInterval(() => {
+            if (Math.random() > 0.8) {
+                document.body.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+            }
+        }, 4000);
+    </script>
+</body>
+</html>
