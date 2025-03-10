@@ -1,5 +1,5 @@
 # **Chaos by Design**  
-### **Submitted by Akmal Hossain**  
+### **Submitted by Akmal Hossain, NIT Agartala**  
 
 This project is an **intentional experiment in bad UX and deceptive design patterns**, designed to frustrate users at every possible step. It challenges conventional usability principles by **deliberately breaking expectations, disrupting user flow, and obstructing interactions**.  
 
