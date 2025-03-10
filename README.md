@@ -1,6 +1,8 @@
 # **Chaos by Design**  
 ### **Submitted by Akmal Hossain, NIT Agartala**  
 
+🔗Working Link: [https://ak-2045.github.io/chaos-by-design/index2.html](https://ak-2045.github.io/chaos-by-design/index2.html) 
+
 This project is an **intentional experiment in bad UX and deceptive design patterns**, designed to frustrate users at every possible step. It challenges conventional usability principles by **deliberately breaking expectations, disrupting user flow, and obstructing interactions**.  
 
 🚨 **Disclaimer:** This project is purely for entertainment. No real money is involved. It does not intend to harm or offend any individuals or cultural sentiments.  
